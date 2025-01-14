@@ -1,4 +1,4 @@
-name: CI/CD Pipeline for Authentication Microservice
+name: CI/CD Pipeline for User Management Microservice
 
 on:
   push:
@@ -23,9 +23,15 @@ jobs:
         with:
           node-version: '20'  # Use the Node.js version your app requires
 
-      # Install dependencies
+      # Install dependencies Server1
       - name: Install dependencies
         run: npm install
+        working-directory: ./Server1
+
+        # Install dependencies Server2
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./Server2
 
       # Build Docker image with MONGO_URI and JWT_SECRET as build arguments
       - name: Build Docker image

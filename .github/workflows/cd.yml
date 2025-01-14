@@ -25,12 +25,16 @@ jobs:
 
       # Install dependencies Server1
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd Server1
+          npm install
         working-directory: ./Server1
 
         # Install dependencies Server2
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd Server2
+          npm install
         working-directory: ./Server2
 
       # Build Docker image with MONGO_URI and JWT_SECRET as build arguments
